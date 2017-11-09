@@ -1,0 +1,13 @@
+<h1>Alien Races</h1>
+
+<%= link_to "Enter a new alien race", new_alien_race_path %>
+
+
+<ul>
+
+	<% @alien_races.each do |alien_race| %>
+
+	<li><%= link_to alien_race.name, alien_race_path(alien_race) %></li>
+
+	<% end %>
+</ul>

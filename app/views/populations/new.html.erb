@@ -1,0 +1,21 @@
+<h1>New Population</h1>
+<ul>
+<% errors(@population).each do |error| %>
+	<li><%= error %></li>
+<% end %>
+</ul>
+
+<%= form_for @population do |f| %>
+	<%= f.label :size, for: :population_size_input %>
+	<%= f.number_field :size_input, value: :size %>
+
+	<br>
+	
+	<%= f.collection_select :alien_race_id, AlienRace.all, :id, :name %>
+	<br>
+	<%= f.collection_select :planet_id, Planet.all, :id, :name %>
+	<br>
+	
+	<%= f.submit "Create Population" %>
+
+<% end %>

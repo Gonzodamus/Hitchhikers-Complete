@@ -1,0 +1,37 @@
+<h1><%= @planet.name %></h1>
+
+<p>Climate: <%= @planet.climate %></p>
+<p>Size: <%= @planet.size %></p>
+<p>Description: <%= @planet.description %></p>
+
+
+<br>
+<br>
+<br>
+
+<h3>Alien Races</h3>
+<table>
+<% @planet.populations.each do |population| %>
+	<tr>
+		<td>Alien Race: <%= link_to population.alien_race.name, alien_race_path(population.alien_race) %></td>
+		<td>Population size: <%= population.size %></td>
+		<td>Extinct: <%= population.extinct %></td>
+	</tr>
+<% end %>
+</table>
+
+
+<h4>Add a new populace</h4>
+<%= form_for :population, url: populations_path do |f| %>
+	<%= f.collection_select :alien_race_id, AlienRace.all, :id, :name %>
+	<%= f.label :size, for: :population_size_input %>
+	<%= f.number_field :size_input%>
+	<%= f.hidden_field :planet_id, value: @planet.id %>
+	<%= f.hidden_field :page, value: "planet page" %>
+	<%= f.submit "Add populace" %>
+<% end %>
+
+<br>
+<br>
+<br>
+

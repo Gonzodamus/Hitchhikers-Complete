@@ -1,0 +1,32 @@
+<h1>New Alien Race</h1>
+<ul>
+	<% errors(@alien_race).each do |error| %>
+		<li><%= error %></li>
+	<% end %>
+</ul>
+
+<%= form_for @alien_race do |f|%>
+
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<br>
+
+	<%= f.label :biome %>
+	<%= f.text_field :biome %>
+
+	<br>
+
+	<%= f.label :demeanor %>
+	<%= f.text_field :demeanor %>
+
+	<br>
+
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+
+	<br>
+
+	<%= f.submit "Create Alien Race" %>
+
+<% end %>

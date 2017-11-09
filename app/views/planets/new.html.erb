@@ -1,0 +1,34 @@
+<h1>New Planet</h1>
+
+<ul>
+	<% errors(@planet).each do |error| %>
+		<li><%= error %></li>
+	<% end %>
+</ul>
+
+
+<%= form_for @planet do |f|%>
+
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<br>
+
+	<%= f.label :climate %>
+	<%= f.text_field :climate %>
+
+	<br>
+
+	<%= f.label :size %> <text>(1-5)</text>
+	<%= f.number_field :size %>
+
+	<br>
+
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+
+	<br>
+
+	<%= f.submit "Create Planet" %>
+
+<% end %>

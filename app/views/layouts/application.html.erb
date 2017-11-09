@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HHGG</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<menu>
+  		<%= link_to "Alien Races", alien_races_path%>
+  		<%= link_to "Planets", planets_path %>
+  	</menu>
+    <%= yield %>
+  </body>
+</html>
